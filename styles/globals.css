@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.in-center {
+		@apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+	}
+
+	.in-center-ish {
+		@apply absolute top-[40%] left-[50%] translate-x-[-50%] translate-y-[-40%];
+	}
+
+	.bar-bottom {
+		@apply before:content-[''] before:w-full before:h-[2px] before:rounded before:absolute before:top-full before:bg-current;
+	}
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
