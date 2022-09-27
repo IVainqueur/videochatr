@@ -8,7 +8,11 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      ...colors
+      ...colors,
+      'purpleshade': {
+        500: '#4800FE',
+        700: '#3400B8'
+      }
     }
   },
   plugins: [],
