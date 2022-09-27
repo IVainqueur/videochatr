@@ -11,7 +11,15 @@ module.exports = {
       ...colors,
       'purpleshade': {
         500: '#4800FE',
-        700: '#3400B8'
+        700: '#3400B8',
+        100: '#E8E1FA'
+      },
+      'white': {
+        default: '#ffffff',
+        900: '#ffffff',
+        800: '#EDEDED',
+        500: '#8B8B8B',
+        100: '#D9D9D9'
       }
     }
   },
