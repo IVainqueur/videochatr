@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect, useReducer, useState } from 'react'
+import { useCallback, useEffect, useReducer, useState } from 'react'
 import Middle from '../components/Middle'
 import Navbar from '../components/Navbar'
 import OtherBar from '../components/OtherBar'
@@ -24,14 +24,32 @@ const Home: NextPage = () => {
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar()
 
+  const snackAction = useCallback((id: SnackbarKey): JSX.Element => {
+    return (
+      <>
+        <button
+          onClick={() => {
+            localStorage.setItem('vc_callhistory', '[]')
+            localStorage.removeItem('vc_username')
+            setUsername(undefined)
+            closeSnackbar(id)
+          }}
+          className="p-3 text-red-500 text-sm font-bold"
+        >
+          CHANGE
+        </button>
+      </>
+    )
+  }, [closeSnackbar])
+
   useEffect(() => {
     let id: SnackbarKey | undefined = undefined;
     if (!!username) {
-      id = enqueueSnackbar(`Username: ${username}`, { persist: true });
+      id = enqueueSnackbar(`Username: ${username}`, { persist: true, action: snackAction });
       localStorage.setItem('vc_username', username)
     }
     return () => closeSnackbar(id)
-  }, [username, enqueueSnackbar, closeSnackbar])
+  }, [username, enqueueSnackbar, closeSnackbar, snackAction])
 
   useEffect(() => {
     setUsername(localStorage.getItem('vc_username') ?? undefined)

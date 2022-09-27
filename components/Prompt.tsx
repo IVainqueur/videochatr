@@ -17,7 +17,6 @@ const Prompt = ({
 }: PromptProps): JSX.Element => {
     const inputHandler = (e: React.KeyboardEvent<InputElement>) => {
         if (e.key === "Enter") update(e.currentTarget.value)
-        console.log(e.nativeEvent)
     }
     return (
         <div className="in-center-ish flex flex-col gap-3 max-w-xs m-auto">

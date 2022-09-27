@@ -21,7 +21,7 @@ export interface CallInfoAction {
 export interface CallHistoryInfo {
     caller: User;
     recipient: User;
-    recieved: boolean;
+    received: boolean;
     time: string;
 }
 
