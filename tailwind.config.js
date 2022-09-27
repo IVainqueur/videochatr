@@ -11,7 +11,7 @@ module.exports = {
       ...colors,
       'purpleshade': {
         500: '#4800FE',
-        700: '#3400B8',
+        700: '#3D00D8',
         100: '#E8E1FA'
       },
       'white': {
